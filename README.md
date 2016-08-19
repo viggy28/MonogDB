@@ -1,0 +1,2 @@
+# MonogDB
+to store scripts 
