@@ -1,0 +1,33 @@
+Mongo Replica Set:
+
+Different ports and db path
+Same replica set name
+
+Create the directories.
+
+mongod --port 27002 --replSet replset --dbpath C:\data\db\replset\2 --logpath C:\data\db\replset\log.2 --logappend --oplogSize 50 --smallfiles
+
+mongod --port 27003 --replSet replset --dbpath C:\data\db\replset\3 --logpath C:\data\db\replset\log.3 --logappend --oplogSize 50 --smallfiles
+
+mongo --port 27001
+
+rs.status()
+
+replSetInitiate
+rs.initiate(config)
+
+Best practice:
+Don't use raw ip adress
+Don't use names from /etc/hosts
+Use DNS or logical names or LDAP
+
+cfg = {
+_id : "replset",
+members : [
+{_id:0 , host:"godsgrace:27001"},
+{_id:1 , host:"godsgrace:27002"},
+{_id:2 , host:"godsgrace:27003"}
+]
+}
+
+rs.conf()
